@@ -1,6 +1,7 @@
 package com.nit.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,14 +36,20 @@ public class StudentServiceImpl implements IStudentService {
 	}
 
 	@Override
-	public Student getStudentByName(String name) throws Exception {
+	public Optional<Student> getStudentByName(String name) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		Student stu = repo.findByName(name);
+		if(stu.getName().equalsIgnoreCase(name)) {
+			return Optional.ofNullable(stu);
+		}
+		else {
+			return null;
+		}
+		
 	}
 
 	@Override
 	public String updateStudent(Integer id) throws Exception {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -56,6 +63,13 @@ public class StudentServiceImpl implements IStudentService {
 		else
 			return "Roll Not found";
 			
+	}
+
+	@Override
+	public List<Student> getStudentLessThanByFee(double fee) throws Exception {
+		// TODO Auto-generated method stub
+		List<Student> li = repo.findByFeeLessThan(fee);
+		return li;
 	}
 
 }

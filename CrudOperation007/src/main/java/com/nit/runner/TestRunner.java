@@ -1,6 +1,7 @@
 package com.nit.runner;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,9 @@ public class TestRunner implements CommandLineRunner{
 			System.out.println("1) Create Account:: \n" + 
 			"2) Show All Details:: \n" + 
 					"3) detete Student details:: \n"+
-					"4) Exit");
+					"4) Show By Name:: \n"+
+					"5) Fee By Less Than:: \n"+
+					"6) Exit");
 			
 			// TODO Auto-generated method stub
 			int choose = Integer.parseInt(sc.nextLine());
@@ -67,6 +70,31 @@ public class TestRunner implements CommandLineRunner{
 				}
 				break;
 			case 4:
+				try {
+					System.out.println("Enter Name;");
+					String name = sc.nextLine();
+					Optional<Student> student = serv.getStudentByName(name);
+					System.out.println(student.toString());
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
+				break;
+				
+			case 5:
+				try {
+					System.out.println("Enter Fee;");
+					double fee = Double.parseDouble(sc.nextLine());
+					List<Student> li = serv.getStudentLessThanByFee(fee);
+					
+					li.forEach(x->System.out.println(x));
+					
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
+				break;
+			case 6:
 				System.out.println("Thanks For Using My Application");
 				System.exit(0);
 			default:
