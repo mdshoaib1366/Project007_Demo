@@ -34,7 +34,7 @@ public class TestRunner implements CommandLineRunner{
 			case 1:
 				try {
 					Student stu = new Student();
-					stu.setName("Aman");
+					stu.setName("Ankit");
 					stu.setAddr("Hyd");
 					stu.setFee(1300d);
 					String result = serv.createAccount(stu);
