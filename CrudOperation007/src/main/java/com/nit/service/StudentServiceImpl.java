@@ -15,16 +15,23 @@ public class StudentServiceImpl implements IStudentService {
 	private IStudentRepo repo;
 	
 	@Override
-	public String createAccount(Student stu) {
+	public String createAccount(Student stu) throws Exception{
 		// TODO Auto-generated method stub
+		Student save = repo.save(stu);
+		Integer roll = save.getRoll();
+		if(roll!=null) {
+			return "Account Created By Roll Number:: " + roll;
+		}
 		
-		return null;
+		return "Account Not Created";
 	}
 
 	@Override
 	public List<Student> showAllDatails() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		
+		List<Student> all = repo.findAll();
+		return all;
 	}
 
 	@Override
