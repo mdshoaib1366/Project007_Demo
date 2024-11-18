@@ -26,7 +26,8 @@ public class TestRunner implements CommandLineRunner{
 			System.out.println("Choose Option==== ");
 			System.out.println("1) Create Account:: \n" + 
 			"2) Show All Details:: \n" + 
-					"3) Exit");
+					"3) detete Student details:: \n"+
+					"4) Exit");
 			
 			// TODO Auto-generated method stub
 			int choose = Integer.parseInt(sc.nextLine());
@@ -34,7 +35,7 @@ public class TestRunner implements CommandLineRunner{
 			case 1:
 				try {
 					Student stu = new Student();
-					stu.setName("Ankit");
+					stu.setName("Pooja");
 					stu.setAddr("Hyd");
 					stu.setFee(1300d);
 					String result = serv.createAccount(stu);
@@ -55,6 +56,17 @@ public class TestRunner implements CommandLineRunner{
 				}
 				break;
 			case 3:
+				try {
+					System.out.println("Enter the roll:: ");
+					Integer id = Integer.parseInt(sc.nextLine());
+					String res = serv.deleteStudentById(id);
+					System.out.println(res);
+				}catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+				break;
+			case 4:
 				System.out.println("Thanks For Using My Application");
 				System.exit(0);
 			default:

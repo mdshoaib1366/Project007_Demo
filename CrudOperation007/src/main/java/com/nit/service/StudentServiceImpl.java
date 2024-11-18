@@ -48,8 +48,14 @@ public class StudentServiceImpl implements IStudentService {
 
 	@Override
 	public String deleteStudentById(Integer id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Student student = repo.findById(id).get();
+		if(student.getRoll().equals(id)) {
+			repo.deleteById(id);
+			return "delete student...";
+		}
+		else
+			return "Roll Not found";
+			
 	}
 
 }
