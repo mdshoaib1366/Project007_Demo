@@ -9,7 +9,7 @@ import com.nit.entity.Student;
 import com.nit.repository.IStudentRepo;
 
 @Service("serv")
-public class StudentServiceImpl implements IStudent {
+public class StudentServiceImpl implements IStudentService {
 
 	@Autowired
 	private IStudentRepo repo;

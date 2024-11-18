@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.nit.entity.Student;
 
-public interface IStudent {
+public interface IStudentService {
 
 	public String createAccount(Student stu) throws Exception;
 	public List<Student> showAllDatails() throws Exception;
