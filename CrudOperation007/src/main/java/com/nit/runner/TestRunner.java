@@ -5,13 +5,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.nit.entity.Student;
-import com.nit.service.IStudentService;
+import com.nit.service.IStudent;
+
 
 @Component
 public class TestRunner implements CommandLineRunner{
 
 	@Autowired
-	private IStudentService serv;
+	private IStudent serv;
 	
 	@Override
 	public void run(String... args) throws Exception {
