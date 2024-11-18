@@ -10,7 +10,6 @@ import lombok.Data;
 @Entity
 @Table(name = "Stdu")
 @Data
-
 public class Student {
 
 	@Id
